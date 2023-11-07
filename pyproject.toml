@@ -1,22 +1,45 @@
 # pyproject.toml reference: https://flit.pypa.io/en/latest/pyproject_toml.html
 [build-system]
-
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [project]
-name = "nkyx_ds_template"
-authors = [{name = "NKYX", email = "qu.tang@outlook.com"}]
+name = "nkyx-ds-template"
+authors = [{ name = "Qu Tang", email = "qu.tang@outlook.com" }]
 readme = "README.md"
-license = {file = "LICENSE"}
-classifiers = ["License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"]
-dynamic = ["version", "description"]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    # Comment out this if you want to upload to pypi
+    "Private :: Do Not Upload",
+]
+dynamic = ["version"]
+requires-python = ">=3.9"
+description = "NKYX data science template"
+
+# Insert dependencies required by the local package here
+# https://flit.pypa.io/en/latest/pyproject_toml.html#dependencies
+dependencies = []
+
 
 [project.urls]
 Home = "https://qutang.dev"
+Source = "https://github.com/qutang/nkyx-ds-template"
 
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/stable/how-to/mark.html
-markers = [
-    "integration: integration tests"
-]
+markers = ["integration: integration tests"]
+
+
+[tool.pdm.dev-dependencies]
+dev = ["pytest>=7.4.3,<8", "black>=23.10.1,<24"]
+
+[tool.pdm.scripts]
+# https://pdm-project.org/latest/usage/scripts/#user-scripts
+
+[tool.pdm.version]
+# by default, use git tag as versioning
+source = "scm"
+tag_regex = '^v([0-9]+)(\.([0-9]+))?(\.([0-9]+))?(\.(a|b|c|rc)([0-9]*))?(\.post([0-9]*))?(\.dev([0-9]*))?$'
+write_to = "nkyx_ds_template/__init__.py"
+write_template = "__version__ = '{}'"

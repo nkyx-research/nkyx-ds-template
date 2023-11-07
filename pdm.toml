@@ -1,0 +1,5 @@
+venv.with_pip = true
+venv.in_project = true
+venv.backend = "venv"
+strategy.update = "reuse"
+strategy.save = "compatible"

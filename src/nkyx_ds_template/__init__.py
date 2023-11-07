@@ -1,3 +1,1 @@
-"""NKYX data science template"""
-
-__version__ = "0.0.1"
+__version__ = '0.0.1.dev2+g585856e.d20231107'
