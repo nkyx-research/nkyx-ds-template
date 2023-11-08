@@ -2,16 +2,15 @@
 This is used by the template to run after pdm init, no need to edit and you can safely delete after init
 """
 
-import importlib
 import os
-from types import ModuleType
-from typing import Any
+import sys
 
 try:
     import toml
 except:
     os.system(command="pip install -U toml")
-    toml: ModuleType = importlib.import_module(name="toml")
+    sys.exit(0)
+
 
 if __name__ == "__main__":
     with open(file="pyproject.toml", mode="r", encoding="utf-8") as f:

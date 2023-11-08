@@ -34,4 +34,4 @@ write_to = "nkyx_ds_template/__init__.py"
 write_template = "__version__ = '{}'"
 
 [tool.pdm.scripts.post_init]
-cmd = "python _post_init.py"
+composite = ["python _post_init.py", "python _post_init.py"]
