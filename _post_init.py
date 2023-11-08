@@ -14,6 +14,7 @@ if __name__ == "__main__":
     if "version" in pyproject["project"]:
         del pyproject["project"]["version"]
     pyproject["project"]["requires-python"] = ">=3.9,!=3.9.7,<3.13"
+    del pyproject["tool"]["pdm"]["scripts"]["post_init"]
 
     with open(file="pyproject.toml", mode="w", encoding="utf-8") as f:
         toml.dump(o=pyproject, f=f)
