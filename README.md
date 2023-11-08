@@ -13,11 +13,11 @@
 
 ## Usage
 
-### Create a new repo based on this template
+1. Create a new repo based on this template via github's website or github CLI
+2. Use vs code to search `nkyx-ds-template`, and replace with your own project name
+3. Use vs code to search `nkyx_ds_template`, and replace with your own project name
+4. Revise `pyproject.toml` to fit your need
 
-```bash
-> pdm init https://github.com/qutang/nkyx-ds-template -v --python [PYTHON_EXECUTABLE] -p [PROJECT_ROOT_PATH]
-```
 
 ## References
 
