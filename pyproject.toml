@@ -5,11 +5,11 @@ build-backend = "pdm.backend"
 [project]
 name = "nkyx-ds-template"
 readme = "README.md"
-authors = []
 classifiers = ["Private :: Do Not Upload"]
 dynamic = ["version"]
 requires-python = ">=3.9,!=3.9.7,<3.13"
 dependencies = []
+license = { text = "MIT" }
 
 [project.urls]
 
@@ -32,6 +32,3 @@ source = "scm"
 tag_regex = "^v([0-9]+)(\\.([0-9]+))?(\\.([0-9]+))?(\\.(a|b|c|rc)([0-9]*))?(\\.post([0-9]*))?(\\.dev([0-9]*))?$"
 write_to = "nkyx_ds_template/__init__.py"
 write_template = "__version__ = '{}'"
-
-[tool.pdm.scripts.post_init]
-composite = ["python _post_init.py", "python _post_init.py"]

@@ -17,6 +17,7 @@
 2. Use vs code to search `nkyx-ds-template`, and replace with your own project name
 3. Use vs code to search `nkyx_ds_template`, and replace with your own project name
 4. Revise `pyproject.toml` to fit your need
+5. Run `git init` and then `pdm update` to sync packages up to date
 
 
 ## References
