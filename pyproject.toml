@@ -7,7 +7,7 @@ name = "nkyx-ds-template"
 readme = "README.md"
 authors = []
 classifiers = [
-    "Private :: Do Not Upload",
+    "Private :: Do Not Upload"
 ]
 dynamic = ["version"]
 requires-python = ">=3.9,!=3.9.7,<3.13"
@@ -26,7 +26,7 @@ dev = [
     "notebook~=7.0",
     "ipywidgets~=8.1",
     "voila~=0.5",
-    "streamlit>=1.28",
+    "streamlit>=1.28"
 ]
 
 [tool.pdm.version]
