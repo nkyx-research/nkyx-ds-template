@@ -8,6 +8,7 @@
 4. Local package is installable to allow sharing
 5. Settings for VS code are also synced
 6. Built in jupyter, ipywidgets, and voila support via dev dependencies
+7. Built in streamlit support via dev dependencies
 
 ## Usage
 
