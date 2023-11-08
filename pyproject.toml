@@ -1,34 +1,22 @@
-# pyproject.toml reference: https://flit.pypa.io/en/latest/pyproject_toml.html
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [project]
 name = "nkyx-ds-template"
-authors = [{ name = "Qu Tang", email = "qu.tang@outlook.com" }]
 readme = "README.md"
-license = { file = "LICENSE" }
 classifiers = [
-    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
-    # Comment out this if you want to upload to pypi
     "Private :: Do Not Upload",
 ]
 dynamic = ["version"]
 requires-python = ">=3.9,!=3.9.7,<3.13"
-description = "NKYX data science template"
-
-# Insert dependencies required by the local package here
 dependencies = []
 
-
 [project.urls]
-Home = "https://qutang.dev"
-Source = "https://github.com/qutang/nkyx-ds-template"
+
 
 [tool.pytest.ini_options]
-# https://docs.pytest.org/en/stable/how-to/mark.html
 markers = ["integration: integration tests"]
-
 
 [tool.pdm.dev-dependencies]
 dev = [
@@ -37,15 +25,14 @@ dev = [
     "notebook~=7.0",
     "ipywidgets~=8.1",
     "voila~=0.5",
-    "streamlit>=1.28"
+    "streamlit>=1.28",
 ]
-[tool.pdm.scripts]
-# https://pdm-project.org/latest/usage/scripts/#user-scripts
-post_init = { cmd = "python scripts/hello_world.py" }
 
 [tool.pdm.version]
-# by default, use git tag as versioning
 source = "scm"
-tag_regex = '^v([0-9]+)(\.([0-9]+))?(\.([0-9]+))?(\.(a|b|c|rc)([0-9]*))?(\.post([0-9]*))?(\.dev([0-9]*))?$'
+tag_regex = "^v([0-9]+)(\\.([0-9]+))?(\\.([0-9]+))?(\\.(a|b|c|rc)([0-9]*))?(\\.post([0-9]*))?(\\.dev([0-9]*))?$"
 write_to = "nkyx_ds_template/__init__.py"
 write_template = "__version__ = '{}'"
+
+[tool.pdm.scripts.post_init]
+cmd = "python _post_init.py"
