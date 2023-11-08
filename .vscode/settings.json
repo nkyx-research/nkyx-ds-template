@@ -27,5 +27,10 @@
     "source.convertImportFormat",
     "source.unusedImports"
   ],
-  "python.analysis.autoFormatStrings": true
+
+  "python.analysis.autoFormatStrings": true,
+  "editor.formatOnSaveMode": "modifications",
+  "editor.defaultFormatter": "ms-python.black-formatter",
+  "editor.formatOnSave": true,
+  "jupyter.widgetScriptSources": ["jsdelivr.com", "unpkg.com"]
 }
