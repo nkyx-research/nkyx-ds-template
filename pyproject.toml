@@ -5,6 +5,7 @@ build-backend = "pdm.backend"
 [project]
 name = "nkyx-ds-template"
 readme = "README.md"
+authors = []
 classifiers = [
     "Private :: Do Not Upload",
 ]

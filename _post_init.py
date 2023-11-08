@@ -12,7 +12,7 @@ if __name__ == "__main__":
     pyproject.remove_section(section="tool.pdm.scripts.post_init")
     pyproject.remove_option(section="project", option="version")
     pyproject.set(
-        section="project", option="requires-python", value=">=3.9,!=3.9.7,<3.13"
+        section="project", option="requires-python", value='">=3.9,!=3.9.7,<3.13"'
     )
 
     with open(file="pyproject.toml", mode="w", encoding="utf-8") as f:
