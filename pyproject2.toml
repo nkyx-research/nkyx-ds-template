@@ -13,7 +13,6 @@ dependencies = []
 
 [project.urls]
 
-
 [tool.pytest.ini_options]
 markers = ["integration: integration tests"]
 
@@ -33,5 +32,4 @@ tag_regex = "^v([0-9]+)(\\.([0-9]+))?(\\.([0-9]+))?(\\.(a|b|c|rc)([0-9]*))?(\\.p
 write_to = "nkyx_ds_template/__init__.py"
 write_template = "__version__ = '{}'"
 
-[tool.pdm.scripts.post_init]
-cmd = "python _post_init.py"
+[tool.pdm.scripts]

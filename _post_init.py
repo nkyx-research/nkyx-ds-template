@@ -2,20 +2,27 @@
 This is used by the template to run after pdm init, no need to edit and you can safely delete after init
 """
 
-import configparser
+import importlib
 import os
+from types import ModuleType
+from typing import Any
+
+try:
+    import toml
+except:
+    os.system(command="pip install -U toml")
+    toml: ModuleType = importlib.import_module(name="toml")
 
 if __name__ == "__main__":
-    pyproject = configparser.ConfigParser(allow_no_value=True, strict=False)
-    pyproject.read(filenames="pyproject.toml", encoding="utf-8")
+    with open(file="pyproject.toml", mode="r", encoding="utf-8") as f:
+        pyproject = toml.load(f)
 
-    pyproject.remove_section(section="tool.pdm.scripts.post_init")
-    pyproject.remove_option(section="project", option="version")
-    pyproject.set(
-        section="project", option="requires-python", value='">=3.9,!=3.9.7,<3.13"'
-    )
+    del pyproject["tool"]["pdm"]["scripts"]["post_init"]
+    if "version" in pyproject["project"]:
+        del pyproject["project"]["version"]
+    pyproject["project"]["requires-python"] = ">=3.9,!=3.9.7,<3.13"
 
     with open(file="pyproject.toml", mode="w", encoding="utf-8") as f:
-        pyproject.write(fp=f)
+        toml.dump(pyproject, f)
 
     os.remove(path="LICENSE")
