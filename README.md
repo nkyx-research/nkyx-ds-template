@@ -16,7 +16,7 @@
 ### Create a new repo based on this template
 
 ```bash
-> pdm init https://github.com/qutang/nkyx-ds-template
+> pdm init https://github.com/qutang/nkyx-ds-template -v --python [PYTHON_EXECUTABLE] -p [PROJECT_ROOT_PATH]
 ```
 
 ## References
