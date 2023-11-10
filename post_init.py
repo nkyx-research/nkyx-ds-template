@@ -79,10 +79,10 @@ def post_init(new_project_name: str, new_package_name, dry_run=True) -> None:
 
     replace_file(filepath="./README.md", new_content=readme_template, dry_run=dry_run)
 
-    setup_env()
+    # setup_env()
 
-    print()
-    print("Congratulations! You are good to go now!")
+    # print()
+    # print("Congratulations! You are good to go now!")
 
 
 if __name__ == "__main__":
