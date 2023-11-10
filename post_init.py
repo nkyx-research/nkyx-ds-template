@@ -81,6 +81,9 @@ def post_init(new_project_name: str, new_package_name, dry_run=True) -> None:
 
     setup_env()
 
+    print()
+    print("Congratulations! You are good to go now!")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
