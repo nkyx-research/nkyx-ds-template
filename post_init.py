@@ -37,13 +37,6 @@ def replace_file(filepath: str, new_content: str, dry_run=True) -> None:
             f.write(new_content)
 
 
-def setup_env() -> None:
-    os.system(command="git init")
-    os.system(command="git branch -m main")
-    os.system(command="pdm update")
-    os.system("pdm run test")
-
-
 def post_init(new_project_name: str, new_package_name, dry_run=True) -> None:
     replace_filenames(
         old_name="nkyx_ds_template", project_name=new_package_name, dry_run=dry_run
@@ -78,11 +71,6 @@ def post_init(new_project_name: str, new_package_name, dry_run=True) -> None:
 """
 
     replace_file(filepath="./README.md", new_content=readme_template, dry_run=dry_run)
-
-    # setup_env()
-
-    # print()
-    # print("Congratulations! You are good to go now!")
 
 
 if __name__ == "__main__":

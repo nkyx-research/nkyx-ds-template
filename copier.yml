@@ -1,3 +1,11 @@
-project_name: The name of the project
+project_name: 
+  type: str
+  help: Set the name of your project, this will also be used as the internal python package's name
+  multiline: false
 _tasks:
-  - ["{{ _copier_python }}", "post_init.py", "{{ project_name }}" ,"--dry-run"]
+  - ["{{ _copier_python }}", "post_init.py", "{{ project_name }}"]
+  - "git init"
+  - "git branch -m main"
+  - "pdm update"
+  - "pdm run test"
+  - "echo \"Your project has been set up!\""
