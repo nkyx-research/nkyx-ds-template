@@ -1,4 +1,4 @@
-project_name: 
+project_name:
   type: str
   help: Set the name of your project, this will also be used as the internal python package's name
   multiline: false
@@ -34,9 +34,13 @@ repo_url:
   default: ""
 
 _tasks:
-  - ["{{ _copier_python }}", "post_init.py", "--configs", "{{ _copier_answers }}"]
+  - [
+      "{{ _copier_python }}",
+      "post_init.py",
+      "--configs",
+      "{{ _copier_answers }}",
+    ]
   - "git init"
-  - "git branch -m main"
   - "pdm update"
   - "pdm run test"
   - "rm post_init.py"
