@@ -16,7 +16,7 @@
 1. Init a new repo using and following command
 
     ```bash
-    > cd [project_root_path] && pdm init --copier qutang/nkyx-ds-template --UNSAFE
+    > cd [project_root_path] && pdm init --copier gh:qutang/nkyx-ds-template --UNSAFE
     ```
 
 2. Run post_init script from root project directory
