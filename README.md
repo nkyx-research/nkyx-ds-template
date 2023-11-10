@@ -14,20 +14,28 @@
 ## Usage
 
 1. Create a new repo based on this template via github's website or github CLI
-2. Use vs code to search `nkyx-ds-template`, and replace with your own project name
-3. Use vs code to search `nkyx_ds_template`, and replace with your own project name
-4. Revise `pyproject.toml` to fit your need
-5. Run `git init` and then `pdm update` to sync packages up to date
 
+    ```bash
+    > gh repo create [project_name] --template qutang/nkyx-ds-template
+    ```
+
+2. Run post_init script from root project directory
+
+    ```bash
+    > python post_init.py [project_name] --package_name [package_name]
+    ```
+
+3. Revise `pyproject.toml` to fit your need
+4. Run `git init` and then `pdm update` to sync packages up to date
 
 ## References
 
-1. voila: https://voila.readthedocs.io/en/stable/using.html
-2. jupyter: https://jupyter.org/
-3. ipywidgets: https://ipywidgets.readthedocs.io/en/stable/
-4. streamlit: https://streamlit.io/
-5. pdm: https://pdm-project.org/latest/
+1. voila: <https://voila.readthedocs.io/en/stable/using.html>
+2. jupyter: <https://jupyter.org/>
+3. ipywidgets: <https://ipywidgets.readthedocs.io/en/stable/>
+4. streamlit: <https://streamlit.io/>
+5. pdm: <https://pdm-project.org/latest/>
 
 ## Recommended python packages to boost productivity
 
-1. rich: https://rich.readthedocs.io/en/latest/
+1. rich: <https://rich.readthedocs.io/en/latest/>
