@@ -59,7 +59,6 @@
 5. pdm: <https://pdm-project.org/latest/>
 6. copier: <https://copier.readthedocs.io/>
 7. dvc: <https://dvc.org/>
-8. 
 
 ## Recommended python packages to boost productivity
 
