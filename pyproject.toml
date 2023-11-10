@@ -34,7 +34,7 @@ dev = [
 
 [tool.pdm.version]
 source = "scm"
-tag_regex = "([0-9]+)(\\.([0-9]+))?(\\.([0-9]+))?(\\.(a|b|c|rc)([0-9]*))?(\\.post([0-9]*))?(\\.dev([0-9]*))?"
+tag_regex = '^(?:\D*)?(?P<version>([1-9][0-9]*!)?(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))*((a|b|c|rc)(0|[1-9][0-9]*))?(\.post(0|[1-9][0-9]*))?(\.dev(0|[1-9][0-9]*))?$)$'
 write_to = "nkyx_ds_template/__init__.py"
 write_template = "__version__ = '{}'"
 
