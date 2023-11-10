@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+from codecs import ignore_errors
 from glob import glob
 
 
@@ -113,6 +114,7 @@ if __name__ == "__main__":
     if args["dry_run"]:
         print("In dry run mode")
 
+    args["configs"] = args["configs"].replace("'", '"')
     args["configs"] = json.loads(args["configs"])
 
     print(args["configs"])
