@@ -22,10 +22,12 @@ def replace_content(old_str, new_str, dry_run=True) -> None:
     for p in filepaths:
         print(f"replace content in {p}: {old_str} to {new_str}")
         if not dry_run:
-            with open(file=p, mode="w", encoding="utf-8") as f:
+            with open(file=p, mode="r+", encoding="utf-8") as f:
                 content: str = f.read()
                 content = content.replace(old_str, new_str)
+                f.seek(0)
                 f.write(content)
+                f.truncate()
 
 
 def replace_file(filepath: str, new_content: str, dry_run=True) -> None:
