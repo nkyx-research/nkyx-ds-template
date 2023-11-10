@@ -13,10 +13,10 @@
 
 ## Usage
 
-1. Create a new repo based on this template via github's website or github CLI
+1. Init a new repo using and following command
 
     ```bash
-    > gh repo create [project_name] --template qutang/nkyx-ds-template
+    > cd [project_root_path] && pdm init --copier qutang/nkyx-ds-template --UNSAFE
     ```
 
 2. Run post_init script from root project directory
