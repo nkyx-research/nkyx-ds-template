@@ -2,11 +2,42 @@ project_name:
   type: str
   help: Set the name of your project, this will also be used as the internal python package's name
   multiline: false
+
+description:
+  type: str
+  help: Set a short description of the project
+  multiline: false
+  default: "{{ project_name }}"
+
+author:
+  type: str
+  help: Set the author's name
+  multiline: false
+  default: ""
+
+email:
+  type: str
+  help: Set the author's email
+  multiline: false
+  default: ""
+
+home_page:
+  type: str
+  help: The home page url of the project
+  multiline: false
+  default: ""
+
+repo_url:
+  type: str
+  help: The repo url of the project
+  multiline: false
+  default: ""
+
 _tasks:
-  - ["{{ _copier_python }}", "post_init.py", "{{ project_name }}"]
+  - ["{{ _copier_python }}", "post_init.py", "--configs", "{{ _copier_answers }}"]
   - "git init"
   - "git branch -m main"
   - "pdm update"
   - "pdm run test"
   - "rm post_init.py"
-  - "echo \"Your project has been set up!\""
+  - "pdm show"

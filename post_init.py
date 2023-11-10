@@ -1,4 +1,5 @@
 import argparse
+import json
 import os
 from glob import glob
 
@@ -37,25 +38,44 @@ def replace_file(filepath: str, new_content: str, dry_run=True) -> None:
             f.write(new_content)
 
 
-def post_init(new_project_name: str, new_package_name, dry_run=True) -> None:
+def post_init(configs, dry_run=True) -> None:
+    package_name = configs["project_name"].lower().replace(" ", "_").replace("-", "_")
     replace_filenames(
-        old_name="nkyx_ds_template", project_name=new_package_name, dry_run=dry_run
+        old_name="nkyx_ds_template",
+        project_name=package_name,
+        dry_run=dry_run,
     )
 
     replace_filenames(
-        old_name="nkyx-ds-template", project_name=new_project_name, dry_run=dry_run
+        old_name="nkyx-ds-template",
+        project_name=configs["project_name"],
+        dry_run=dry_run,
     )
 
     replace_content(
-        old_str="nkyx-ds-template", new_str=new_project_name, dry_run=dry_run
+        old_str="nkyx-ds-template", new_str=configs["project_name"], dry_run=dry_run
+    )
+
+    replace_content(old_str="nkyx_ds_template", new_str=package_name, dry_run=dry_run)
+
+    replace_content(old_str="{{ author }}", new_str=configs["author"], dry_run=dry_run)
+
+    replace_content(old_str="{{ email }}", new_str=configs["email"], dry_run=dry_run)
+
+    replace_content(
+        old_str="{{ description }}", new_str=configs["description"], dry_run=dry_run
     )
 
     replace_content(
-        old_str="nkyx_ds_template", new_str=new_package_name, dry_run=dry_run
+        old_str="{{ home_page }}", new_str=configs["home_page"], dry_run=dry_run
+    )
+
+    replace_content(
+        old_str="{{ repo_url }}", new_str=configs["repo_url"], dry_run=dry_run
     )
 
     readme_template: str = f"""
-# {new_project_name.capitalize()}
+# {configs["project_name"].capitalize()}
 
 ## References
 
@@ -74,9 +94,18 @@ def post_init(new_project_name: str, new_package_name, dry_run=True) -> None:
 
 
 if __name__ == "__main__":
+    default: str = json.dumps(
+        {
+            "project_name": "test-pdm",
+            "author": "Qu Tang",
+            "email": "qu.tang@outlook.com",
+            "description": "test pdm",
+            "home_page": "https://qutang.dev",
+            "repo_url": "https://github.com/qutang/test-pdm",
+        }
+    )
     parser = argparse.ArgumentParser()
-    parser.add_argument("project_name", type=str)
-    parser.add_argument("--package_name", type=str, required=False)
+    parser.add_argument("--configs", type=str, required=True)
     parser.add_argument("--dry-run", action="store_true", required=False)
 
     args: dict[str, str] = vars(parser.parse_args())
@@ -84,16 +113,11 @@ if __name__ == "__main__":
     if args["dry_run"]:
         print("In dry run mode")
 
-    if args["package_name"] is None:
-        args["package_name"] = (
-            args["project_name"].lower().replace(" ", "_").replace("-", "_")
-        )
+    args["configs"] = json.loads(args["configs"])
 
-    print(f"New project name: {args['project_name']}")
-    print(f"New package name: {args['package_name']}")
+    print(args["configs"])
 
     post_init(
-        new_project_name=args["project_name"],
-        new_package_name=args["package_name"],
+        args["configs"],
         dry_run=bool(args["dry_run"]),
     )
