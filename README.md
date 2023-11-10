@@ -2,16 +2,39 @@
 
 ## Features
 
-1. `Python` based
-2. Use `pdm-backend` as build system
-3. Use `pdm` as project dependency management system
-4. As simple as possible
-5. Local package is installable to allow sharing
-6. Settings for VS code are also synced
-7. Built in `jupyter`, `ipywidgets`, and `voila` support via dev dependencies
-8. Built in `streamlit` support via dev dependencies
+* [x] `Python` based
+* [x] Use `pdm-backend` as build system
+* [x] Use `pdm` as project dependency management system
+* [x] Local package is installable to allow sharing
+* [x] Settings for VS code are also synced
+* [x] Built in `jupyter`, `ipywidgets`, and `voila` support via dev dependencies
+* [x] Built in `streamlit` support via dev dependencies
+* [x] Built in `dvc` support
+* [x] Make the template repo itself is a functional environment and can also be used as a template via copier
+  * Better than using copier and cookiecutter templates!
+* [x] Post init can help setup `git` environment, and run the first `pdm update` for you, these are all done automatically!
+* [x] Use `scm` to single source project version
+* [ ] Make torch installation work via pdm torch plugin
+* [ ] CI workflows for the created project
+  * [ ] Run tests
+  * [ ] Build packages
+  * [ ] Build & deploy static doc site
+* [ ] CI workflows for checking the template repo itself
+  * [ ] Test creating a new project
+  * [ ] Test updating an existing project via `copier`
+* [ ] Support updating a project if the template evolves
+* [ ] Support `pytest-cov`
+* [ ] Support documentation site via `MKDocs` or single page site
 
 ## Usage
+
+0. Prerequisite: Install `python` (of course!), `pdm`, `copier` and `dvc` into your global environment or your `python` global environment
+
+    * Install `copier` into `pdm` as well
+
+        ```bash
+        > pdm self add copier
+        ```
 
 1. Init a new repo using and following command
 
@@ -19,14 +42,13 @@
     > cd [project_root_path] && pdm init --copier gh:qutang/nkyx-ds-template --UNSAFE
     ```
 
-2. Run post_init script from root project directory
+    or use `copier`
 
     ```bash
-    > python post_init.py [project_name] --package_name [package_name]
+    > copier copy --trust gh:qutang/nkyx-ds-template [project_root_path]
     ```
 
-3. Revise `pyproject.toml` to fit your need
-4. Run `git init` and then `pdm update` to sync packages up to date
+2. You are all set and good to go!
 
 ## References
 
@@ -35,6 +57,9 @@
 3. ipywidgets: <https://ipywidgets.readthedocs.io/en/stable/>
 4. streamlit: <https://streamlit.io/>
 5. pdm: <https://pdm-project.org/latest/>
+6. copier: <https://copier.readthedocs.io/>
+7. dvc: <https://dvc.org/>
+8. 
 
 ## Recommended python packages to boost productivity
 
