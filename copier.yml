@@ -1,0 +1,3 @@
+project_name: The name of the project
+_tasks:
+  - ["{{ _copier_python }}", "post_init.py", "{{ project_name }}" ,"--dry-run"]
