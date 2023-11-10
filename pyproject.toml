@@ -10,8 +10,13 @@ dynamic = ["version"]
 requires-python = ">=3.9,!=3.9.7,<3.13"
 dependencies = []
 license = { file = "LICENSE" }
+authors = [{ "name" = "{{ author }}", "email" = "{{ email }}" }]
+maintainers = [{ "name" = "{{ author }}", "email" = "{{ email }}" }]
+description = "{{ description }}"
 
 [project.urls]
+Homepage = "{{ home_page }}"
+Repository = "{{ repo_url }}"
 
 
 [tool.pytest.ini_options]
