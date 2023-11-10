@@ -75,24 +75,6 @@ def post_init(configs, dry_run=True) -> None:
         old_str="{{ repo_url }}", new_str=configs["repo_url"], dry_run=dry_run
     )
 
-    readme_template: str = f"""
-# {configs["project_name"].capitalize()}
-
-## References
-
-1. voila: https://voila.readthedocs.io/en/stable/using.html
-2. jupyter: https://jupyter.org/
-3. ipywidgets: https://ipywidgets.readthedocs.io/en/stable/
-4. streamlit: https://streamlit.io/
-5. pdm: https://pdm-project.org/latest/
-
-## Recommended python packages to boost productivity
-
-1. rich: https://rich.readthedocs.io/en/latest/
-"""
-
-    replace_file(filepath="./README.md", new_content=readme_template, dry_run=dry_run)
-
 
 if __name__ == "__main__":
     default: str = json.dumps(
