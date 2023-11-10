@@ -1,9 +1,6 @@
 import argparse
 import os
 from glob import glob
-from typing import Any
-
-from numpy import require
 
 
 def replace_filenames(old_name, project_name, dry_run=True) -> None:
