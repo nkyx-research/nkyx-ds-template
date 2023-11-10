@@ -1,7 +1,7 @@
 import argparse
 import json
 import os
-from codecs import ignore_errors
+import shutil
 from glob import glob
 
 
@@ -11,7 +11,10 @@ def replace_filenames(old_name, project_name, dry_run=True) -> None:
         new_p: str = p.replace(old_name, project_name)
         print(f"renaming: {p} to {new_p}")
         if not dry_run:
-            os.rename(src=p, dst=new_p)
+            if not os.path.exists(path=new_p):
+                os.rename(src=p, dst=new_p)
+            else:
+                shutil.rmtree(p, ignore_errors=True)
 
 
 def replace_content(old_str, new_str, dry_run=True) -> None:
@@ -22,6 +25,8 @@ def replace_content(old_str, new_str, dry_run=True) -> None:
     ]
 
     for p in filepaths:
+        if not os.path.exists(p):
+            continue
         print(f"replace content in {p}: {old_str} to {new_str}")
         if not dry_run:
             with open(file=p, mode="r+", encoding="utf-8") as f:
@@ -30,13 +35,6 @@ def replace_content(old_str, new_str, dry_run=True) -> None:
                 f.seek(0)
                 f.write(content)
                 f.truncate()
-
-
-def replace_file(filepath: str, new_content: str, dry_run=True) -> None:
-    print(f"replace file {filepath} with {new_content}")
-    if not dry_run:
-        with open(file=filepath, mode="w", encoding="utf-8") as f:
-            f.write(new_content)
 
 
 def post_init(configs, dry_run=True) -> None:
@@ -78,7 +76,7 @@ def post_init(configs, dry_run=True) -> None:
 
 if __name__ == "__main__":
     default: str = json.dumps(
-        {
+        obj={
             "project_name": "test-pdm",
             "author": "Qu Tang",
             "email": "qu.tang@outlook.com",
@@ -102,6 +100,6 @@ if __name__ == "__main__":
     print(args["configs"])
 
     post_init(
-        args["configs"],
+        configs=args["configs"],
         dry_run=bool(args["dry_run"]),
     )
