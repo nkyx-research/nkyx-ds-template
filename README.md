@@ -7,9 +7,6 @@
 * [x] Use `pdm` as project dependency management system
 * [x] Local package is installable to allow sharing
 * [x] Settings for VS code are also synced
-* [x] Built in `jupyter`, `ipywidgets`, and `voila` support via dev dependencies
-* [x] Built in `streamlit` support via dev dependencies
-* [x] Built in `dvc` support
 * [x] Make the template repo itself is a functional environment and can also be used as a template via copier
   * Better than using copier and cookiecutter templates!
 * [x] Post init can help setup `git` environment, and run the first `pdm update` for you, these are all done automatically!

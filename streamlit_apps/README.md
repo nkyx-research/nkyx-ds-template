@@ -1,1 +1,0 @@
-Your streamlit apps go inside this folder

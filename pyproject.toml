@@ -23,14 +23,7 @@ Repository = "{{ repo_url }}"
 markers = ["integration: integration tests"]
 
 [tool.pdm.dev-dependencies]
-dev = [
-    "pytest>=7.4.3,<8",
-    "black>=23.10.1,<24",
-    "notebook~=7.0",
-    "ipywidgets~=8.1",
-    "voila~=0.5",
-    "streamlit>=1.28",
-]
+dev = ["pytest>=7.4.3,<8", "black>=23.10.1,<24"]
 
 [tool.pdm.version]
 source = "scm"
