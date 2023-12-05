@@ -11,17 +11,14 @@
   * Better than using copier and cookiecutter templates!
 * [x] Post init can help setup `git` environment, and run the first `pdm update` for you, these are all done automatically!
 * [x] Use `scm` to single source project version
-* [ ] Make torch installation work via pdm torch plugin
 * [ ] CI workflows for the created project
   * [ ] Run tests
   * [ ] Build packages
-  * [ ] Build & deploy static doc site
 * [ ] CI workflows for checking the template repo itself
   * [ ] Test creating a new project
   * [ ] Test updating an existing project via `copier`
 * [ ] Support updating a project if the template evolves
 * [ ] Support `pytest-cov`
-* [ ] Support documentation site via `MKDocs` or single page site
 
 ## Usage
 
