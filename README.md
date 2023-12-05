@@ -49,14 +49,10 @@
 
 ## References
 
-1. voila: <https://voila.readthedocs.io/en/stable/using.html>
-2. jupyter: <https://jupyter.org/>
-3. ipywidgets: <https://ipywidgets.readthedocs.io/en/stable/>
-4. streamlit: <https://streamlit.io/>
-5. pdm: <https://pdm-project.org/latest/>
-6. copier: <https://copier.readthedocs.io/>
-7. dvc: <https://dvc.org/>
+1. pdm: <https://pdm-project.org/latest/>
+2. copier: <https://copier.readthedocs.io/>
 
 ## Recommended python packages to boost productivity
 
-1. rich: <https://rich.readthedocs.io/en/latest/>
+1. rich
+2. streamlit
