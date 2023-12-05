@@ -35,11 +35,9 @@
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true
   },
-  "jupyter.widgetScriptSources": ["jsdelivr.com", "unpkg.com"],
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml",
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
-  },
-  "hide-files.files": []
+  }
 }
