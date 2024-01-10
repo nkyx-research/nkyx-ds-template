@@ -18,7 +18,7 @@
   * [ ] Test creating a new project
   * [ ] Test updating an existing project via `copier`
 * [ ] Support updating a project if the template evolves
-* [ ] Support `pytest-cov`
+* [x] Support `pytest-cov`
 
 ## Usage
 
