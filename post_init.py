@@ -38,7 +38,9 @@ def replace_content(old_str, new_str, dry_run=True) -> None:
 
 
 def post_init(configs, dry_run=True) -> None:
-    namespace_name = configs["namespace"].lower().replace(" ", "_").replace("-", "_")
+    namespace_name = (
+        configs["namespace_name"].lower().replace(" ", "_").replace("-", "_")
+    )
     package_name = configs["project_name"].lower().replace(" ", "_").replace("-", "_")
     replace_filenames(
         old_name="nkyx",
