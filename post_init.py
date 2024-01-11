@@ -86,7 +86,7 @@ def post_init(configs, dry_run=True) -> None:
 if __name__ == "__main__":
     default: str = json.dumps(
         obj={
-            "namespace": "nkyx",
+            "namespace_name": "nkyx",
             "project_name": "test-ds-template",
             "author": "Qu Tang",
             "email": "qu.tang@outlook.com",

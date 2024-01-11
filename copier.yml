@@ -1,6 +1,7 @@
-namespace:
+namespace_name:
   type: str
   help: Set the name of the namespace, this will be used as the namespace package name
+  multiline: false
 
 project_name:
   type: str
