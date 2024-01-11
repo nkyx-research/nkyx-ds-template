@@ -3,6 +3,7 @@
 ## Features
 
 * [x] `Python` based
+* [x] Use namespace style folder structure
 * [x] Use `pdm-backend` as build system
 * [x] Use `pdm` as project dependency management system
 * [x] Local package is installable to allow sharing
@@ -19,11 +20,10 @@
   * [ ] Test updating an existing project via `copier`
 * [ ] Support updating a project if the template evolves
 * [x] Support `pytest-cov`
-* [x] Use namespace style folder structure
 
 ## Usage
 
-0. Prerequisite: Install `python` (of course!), `pdm`, `copier` and `dvc` into your global environment or your `python` global environment
+1. Prerequisite: Install `python` (of course!), `pdm` and `copier` into your global environment or your `python` global environment
 
     * Install `copier` into `pdm` as well
 
@@ -31,19 +31,25 @@
         > pdm self add copier
         ```
 
-1. Init a new repo using and following command
+2. Init a new repo using and following command
 
     ```bash
     > cd [project_root_path] && pdm init --copier gh:qutang/nkyx-ds-template --UNSAFE
     ```
 
-    or use `copier`
+    or use `copier` for a stable version
 
     ```bash
     > copier copy --trust gh:qutang/nkyx-ds-template [project_root_path]
     ```
 
-2. You are all set and good to go!
+    or for dev version
+
+    ```bash
+    > copier copy --vcs-ref main --trust gh:qutang/nkyx-ds-template [project_root_path]
+    ```
+
+3. You are all set and good to go!
 
 ## References
 

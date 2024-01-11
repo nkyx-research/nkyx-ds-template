@@ -22,6 +22,11 @@ Repository = "{{ repo_url }}"
 [tool.pytest.ini_options]
 markers = ["integration: integration tests"]
 
+[tool.pdm.build]
+includes = ["src"]
+package-dir = "src"
+source-includes = ["tests"]
+
 [tool.pdm.dev-dependencies]
 dev = ["pytest>=7.4.3,<8", "black>=23.10.1,<24", "pytest-cov~=4.1"]
 
@@ -32,4 +37,4 @@ write_to = "nkyx/ds_template/__version__.py"
 write_template = "__version__ = '{}'"
 
 [tool.pdm.scripts.test]
-cmd = "pytest tests -v --color=auto --verbosity 2 --cov=nkyx/ds_template --cov-report html:coverage"
+cmd = "pytest tests -v --color=auto --verbosity 2 --cov=nkyx --cov-report html:coverage"
