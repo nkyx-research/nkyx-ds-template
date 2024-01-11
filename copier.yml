@@ -49,4 +49,5 @@ _tasks:
   - "pdm update"
   - "pdm run test"
   - "rm post_init.py"
+  - "pdm build"
   - "pdm show"
