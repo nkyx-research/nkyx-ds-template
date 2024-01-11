@@ -5,10 +5,10 @@ import shutil
 from glob import glob
 
 
-def replace_filenames(old_name, project_name, dry_run=True) -> None:
+def replace_filenames(old_name, new_name, dry_run=True) -> None:
     filepaths: list[str] = glob(pathname=f"./**/{old_name}", recursive=True)
     for p in filepaths:
-        new_p: str = p.replace(old_name, project_name)
+        new_p: str = p.replace(old_name, new_name)
         print(f"renaming: {p} to {new_p}")
         if not dry_run:
             if not os.path.exists(path=new_p):
@@ -38,24 +38,33 @@ def replace_content(old_str, new_str, dry_run=True) -> None:
 
 
 def post_init(configs, dry_run=True) -> None:
+    namespace_name = configs["namespace"].lower().replace(" ", "_").replace("-", "_")
     package_name = configs["project_name"].lower().replace(" ", "_").replace("-", "_")
     replace_filenames(
-        old_name="nkyx_ds_template",
-        project_name=package_name,
+        old_name="nkyx",
+        new_name=namespace_name,
         dry_run=dry_run,
     )
 
     replace_filenames(
-        old_name="nkyx-ds-template",
-        project_name=configs["project_name"],
+        old_name="ds-template",
+        new_name=configs["project_name"],
         dry_run=dry_run,
     )
 
-    replace_content(
-        old_str="nkyx-ds-template", new_str=configs["project_name"], dry_run=dry_run
+    replace_filenames(
+        old_name="ds_template",
+        new_name=package_name,
+        dry_run=dry_run,
     )
 
-    replace_content(old_str="nkyx_ds_template", new_str=package_name, dry_run=dry_run)
+    replace_content(old_str="nkyx", new_str=namespace_name, dry_run=dry_run)
+
+    replace_content(
+        old_str="ds-template", new_str=configs["project_name"], dry_run=dry_run
+    )
+
+    replace_content(old_str="ds_template", new_str=package_name, dry_run=dry_run)
 
     replace_content(old_str="{{ author }}", new_str=configs["author"], dry_run=dry_run)
 
@@ -77,16 +86,17 @@ def post_init(configs, dry_run=True) -> None:
 if __name__ == "__main__":
     default: str = json.dumps(
         obj={
-            "project_name": "test-pdm",
+            "namespace": "nkyx",
+            "project_name": "test-ds-template",
             "author": "Qu Tang",
             "email": "qu.tang@outlook.com",
-            "description": "test pdm",
+            "description": "test ds template",
             "home_page": "https://qutang.dev",
             "repo_url": "https://github.com/qutang/test-pdm",
         }
     )
     parser = argparse.ArgumentParser()
-    parser.add_argument("--configs", type=str, required=True)
+    parser.add_argument("--configs", type=str, default=default)
     parser.add_argument("--dry-run", action="store_true", required=False)
 
     args: dict[str, str] = vars(parser.parse_args())

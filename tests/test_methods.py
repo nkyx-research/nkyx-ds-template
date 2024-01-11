@@ -2,7 +2,7 @@
 
 import pytest
 
-from nkyx_ds_template.hello_world import hello_world
+from nkyx.ds_template.hello_world import hello_world
 
 
 def hello_test() -> None:

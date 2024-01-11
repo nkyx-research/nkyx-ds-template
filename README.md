@@ -19,6 +19,7 @@
   * [ ] Test updating an existing project via `copier`
 * [ ] Support updating a project if the template evolves
 * [x] Support `pytest-cov`
+* [x] Use namespace style folder structure
 
 ## Usage
 
