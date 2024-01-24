@@ -46,6 +46,7 @@ _tasks:
       "{{ _copier_answers }}",
     ]
   - "git init"
+  - "pdm venv create python --copies"
   - "pdm update"
   - "pdm run test"
   - "rm post_init.py"
