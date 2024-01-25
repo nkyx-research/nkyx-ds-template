@@ -46,6 +46,8 @@ _tasks:
       "{{ _copier_answers }}",
     ]
   - "git init"
+  - "git config user.name \"{{ author }}\""
+  - "git config user.email \"{{ email }}\""
   - "pdm venv create python --copies"
   - "pdm update"
   - "pdm run test"
